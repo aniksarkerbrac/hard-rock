@@ -1,9 +1,9 @@
 var apiUrl = 'https://api.lyrics.ovh';
 var loading = `<div class="spinner-border text-light" role="status">
                      <span class="sr-only">Loading...</span>
-                 </div>`
+              </div>`
 
-// search button clicked
+// search button
 document.getElementById("inputForm").addEventListener('submit', start);
 function start(e) {
     resetField();
@@ -25,14 +25,10 @@ function start(e) {
     e.preventDefault();
 }
 
-
-
 // display suggestions 
 function displaySuggestion(allData) {
     let data = allData.data;
     console.log(data);
-
-
 
     // only 10 suggestion will come
     let list = [];
@@ -46,9 +42,6 @@ function displaySuggestion(allData) {
         list.push(item);
     }
     console.log(list);
-
-
-
 
     //  html for display suggestions
     let display = document.getElementById("display-result");
@@ -69,9 +62,6 @@ function displaySuggestion(allData) {
     }
 }
 
-
-
-
 // get the lyrics from clicked suggestions
 
 const getLyrics = (title, artistName) => {
@@ -82,7 +72,6 @@ const getLyrics = (title, artistName) => {
         .then(response => response.json())
         .then(data => displayLyrics(data, title, artistName))
 }
-
 
 // display lyrics from getLyrics
 
@@ -96,9 +85,6 @@ const displayLyrics = (data, title, artistName) => {
         document.getElementById("get-lyrics").innerText = "Sorry! Lyrics is not found.";
     }
 }
-
-
-
 
 // reset id fields
 const resetField = () => {
